@@ -583,8 +583,8 @@ static MachineBasicBlock *emitCmpBrZeroMultiByte(MachineInstr &MI,
     return MBB;
   }
 
-  MachineBasicBlock *TBB;
-  MachineBasicBlock *FBB;
+  MachineBasicBlock *TBB = nullptr;
+  MachineBasicBlock *FBB = nullptr;
   SmallVector<MachineOperand> Cond;
   bool CannotAnalyze = TII.analyzeBranch(*MBB, TBB, FBB, Cond);
   assert(!CannotAnalyze &&
