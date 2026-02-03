@@ -586,7 +586,7 @@ static MachineBasicBlock *emitCmpBrZeroMultiByte(MachineInstr &MI,
   MachineBasicBlock *TBB;
   MachineBasicBlock *FBB;
   SmallVector<MachineOperand> Cond;
-  assert(!TII.analyzeBranch(*MBB, TBB, FBB, Cond); &&
+  assert(!TII.analyzeBranch(*MBB, TBB, FBB, Cond) &&
          "all CmpBr branches structures should be analyzable");
   assert(!Cond.empty() && "expected conditional branch");
   assert(Cond.front().getImm() == MOS::CmpBrZeroMultiByte &&
